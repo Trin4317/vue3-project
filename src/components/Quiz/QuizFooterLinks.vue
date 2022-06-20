@@ -1,14 +1,15 @@
 <script setup>
 
-defineProps({
-	quiz: Object
-});
+import { inject } from "vue";
+
+// child component of Quiz can inject the data provided by parent component based on the key
+let name = inject('quiz');
 
 </script>
 
 <template>
 	<div style="margin-top: 10px;">
-		<h5>{{ quiz.name }}</h5>
+		<h5>{{ name }}</h5>
 
 		<ul>
 			<li><a href="#">Get a Job</a></li>
