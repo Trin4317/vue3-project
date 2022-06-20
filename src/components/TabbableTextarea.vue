@@ -23,12 +23,12 @@ function onTabPress(e) {
 	textarea.selectionStart = textarea.selectionEnd = start + 1;
 }
 
-function update(e) {
-	emit('update:modelValue', e.target.value);
-}
-
 </script>
 
 <template>
-	<textarea @keydown.tab.prevent="onTabPress" @keyup="update" v-text="modelValue" />
+	<textarea 
+		@keydown.tab.prevent="onTabPress" 
+		@keyup="emit('update:modelValue', $event.target.value)" 
+		v-text="modelValue" 
+	/>
 </template>
