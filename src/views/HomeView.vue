@@ -1,47 +1,18 @@
 <script setup>
-	import { ref, watch } from "vue";
-	import { useStorage } from "@/composables/useStorage";
 
-	let food = useStorage('food', 'salad');
+import TabbableTextarea from "@/components/TabbableTextarea.vue";
+import { ref } from "vue";
 
-	let age = useStorage('age');
-
-	let obj = useStorage('obj', { one: 'one'});
-
-	setTimeout(() => {
-		obj.value.one = 'changed';
-	}, 3000);
-
-	// inline script
-	// let food = ref(localStorage.getItem('food'));
-	// let age = ref(localStorage.getItem('age'));
-
-	// watch(food, (val) => {
-	// 	write('food', val);
-	// });
-
-	// watch(age, (val) => {
-	// 	write('age', val);
-	// });
-
-	// function write(key, val) {
-	// 	localStorage.setItem(key, val);
-	// }
-
-	// setTimeout(() => {
-	// 	food.value = 'shrimp';
-	// }, 2000);
+// first we define a v-model in Parent component
+// then we accept it as a prop in Child component
+let comment = ref("test value");
 
 </script>
 
 <template>
   <main>
-    <p>
-    	What is your favorite foods? <input type="text" v-model="food">
-    </p>
-
-    <p>
-    	How old are you? <input type="text" v-model="age">
-    </p>
+    <form>
+    	<TabbableTextarea v-model="comment" style="width: 100%; height: 300px;" />
+    </form>
   </main>
 </template>
