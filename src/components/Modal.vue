@@ -5,28 +5,35 @@ defineProps({
 </script>
 
 <template>
-    <div v-if="show" class="modal-mask">
-        <div class="modal-container">
-            <header>
-                <slot name="header">Default Header</slot>
-            </header>
-            <div>
-                <slot>Default Main Text</slot>
+    <Transition
+        enter-from-class="transition duration-300 opacity-0"
+        enter-to-class="transition duration-300 opacity-100"
+        leave-from-class="transition duration-150 opacity-100"
+        leave-to-class="transition duration-150 opacity-0"
+    >
+        <div v-if="show" class="modal-mask">
+            <div class="modal-container">
+                <header>
+                    <slot name="header">Default Header</slot>
+                </header>
+                <div>
+                    <slot>Default Main Text</slot>
+                </div>
+                <footer class="modal-footer">
+                    <slot name="footer">
+                        <button @click="$emit('close')">Close</button>
+                    </slot>
+                </footer>
             </div>
-            <footer class="modal-footer">
-                <slot name="footer">
-                    <button @click="$emit('close')">Close</button>
-                </slot>
-            </footer>
         </div>
-    </div>
+    </Transition>
 </template>
 
 <style>
 .modal-mask {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, 0.6);
     display: grid;
     place-items: center;
 }
