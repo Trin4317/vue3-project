@@ -25,6 +25,17 @@ export let useTeamStore = defineStore('team', {
 
             // option 2: mutating the $state (https://pinia.vuejs.org/core-concepts/state.html#replacing-the-state)
             this.$state = r.default;
+        },
+
+        // increase team spots
+        grow(spots) {
+            this.spots = spots;
+        }
+    },
+
+    getters: {
+        spotsRemaining() {
+            return this.spots - this.members.length;
         }
     }
 });

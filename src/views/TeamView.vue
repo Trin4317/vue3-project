@@ -6,6 +6,9 @@ import { useTeamStore } from "@/stores/teamStore";
 
 let team = useTeamStore();
 team.fill();
+setTimeout(() => {
+    team.grow(20)
+}, 2000);
 </script>
 
 <template>
