@@ -7,7 +7,7 @@ import team from "@/team.json";
   <header class="flex justify-between">
     <div>
       <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-              :disabled="true">Add Member (0 Spots Left)</button>
+              :disabled="team.members.length === team.spots">Add Member ({{ team.spots - team.members.length }} Spots Left)</button>
     </div>
 
     <div>
@@ -32,7 +32,7 @@ import team from "@/team.json";
         </tbody>
     </table>
   
-    <p class="text-right text-gray-600 italic">There are no remaining team spots. Upgrade to add more.</p>
+    <p class="text-right text-gray-600 italic" v-show="team.members.length === team.spots">There are no remaining team spots. Upgrade to add more.</p>
   </div>
   
   <footer class="mt-12 bg-gray-100 py-4 text-center">
