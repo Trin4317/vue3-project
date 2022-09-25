@@ -2,7 +2,10 @@
 import TeamHeader from "@/components/Teams/TeamHeader.vue";
 import TeamMemberTable from "@/components/Teams/TeamMemberTable.vue";
 import TeamFooter from "@/components/Teams/TeamFooter.vue";
-import team from "@/team.json";
+import { useTeamStore } from "@/stores/teamStore";
+
+let team = useTeamStore();
+team.fill();
 </script>
 
 <template>
