@@ -5,28 +5,30 @@ defineProps({
 </script>
 
 <template>
-    <div v-if="show" class="modal-mask">
-        <div class="modal-container">
-            <header>
-                <slot name="header">Default Header</slot>
-            </header>
-            <div>
-                <slot>Default Main Text</slot>
+    <Transition name="modal">
+        <div v-if="show" class="modal-mask">
+            <div class="modal-container">
+                <header>
+                    <slot name="header">Default Header</slot>
+                </header>
+                <div>
+                    <slot>Default Main Text</slot>
+                </div>
+                <footer class="modal-footer">
+                    <slot name="footer">
+                        <button @click="$emit('close')">Close</button>
+                    </slot>
+                </footer>
             </div>
-            <footer class="modal-footer">
-                <slot name="footer">
-                    <button @click="$emit('close')">Close</button>
-                </slot>
-            </footer>
         </div>
-    </div>
+    </Transition>
 </template>
 
 <style>
 .modal-mask {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, 0.6);
     display: grid;
     place-items: center;
 }
@@ -50,5 +52,17 @@ defineProps({
 }
 .modal-footer button:hover {
     background: #c8c8c8;
+}
+.modal-enter-active {
+    transition: opacity 0.3s;
+}
+.modal-leave-active {
+    transition: opacity 0.15s;
+}
+.modal-enter-from, .modal-leave-to {
+    opacity: 0;
+}
+.modal-enter-to, .modal-leave-from {
+    opacity: 1;
 }
 </style>
