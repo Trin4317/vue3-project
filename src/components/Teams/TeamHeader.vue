@@ -3,8 +3,8 @@
         <div>
             <button
                 class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-                :disabled="team.members.length === team.spots"
-            >Add Member ({{ team.spots - team.members.length }} Spots Left)</button>
+                :disabled="! team.spotsRemaining"
+            >Add Member ({{ team.spotsRemaining }} Spots Left)</button>
         </div>
 
         <div>
@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-defineProps({
-    team: Object
-})
+import { useTeamStore } from "@/stores/teamStore";
+
+let team = useTeamStore();
 </script>
