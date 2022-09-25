@@ -10,8 +10,6 @@ import team from "@/team.json";
 
   <div class="place-self-center flex flex-col gap-y-3" style="width: 725px">
     <TeamMemberTable :team="team" />
-  
-    <p class="text-right text-gray-600 italic" v-show="team.members.length === team.spots">There are no remaining team spots. Upgrade to add more.</p>
   </div>
   
   <TeamFooter :team="team" />
