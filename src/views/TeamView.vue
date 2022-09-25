@@ -1,6 +1,7 @@
 <script setup>
 import TeamHeader from "@/components/Teams/TeamHeader.vue";
 import TeamMemberTable from "@/components/Teams/TeamMemberTable.vue";
+import TeamFooter from "@/components/Teams/TeamFooter.vue";
 import team from "@/team.json";
 </script>
 
@@ -13,7 +14,5 @@ import team from "@/team.json";
     <p class="text-right text-gray-600 italic" v-show="team.members.length === team.spots">There are no remaining team spots. Upgrade to add more.</p>
   </div>
   
-  <footer class="mt-12 bg-gray-100 py-4 text-center">
-    <h5 class="font-semibold text-lg">{{ team.name }} - {{ team.spots }} Members Team</h5>
-  </footer>
+  <TeamFooter :team="team" />
 </template>
