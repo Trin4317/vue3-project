@@ -7,10 +7,16 @@ defineProps({
 <template>
     <div v-if="show" class="modal-mask">
         <div class="modal-container">
-            <header>Header</header>
-            <div>Main text</div>
+            <header>
+                <slot name="header">Default Header</slot>
+            </header>
+            <div>
+                <slot>Default Main Text</slot>
+            </div>
             <footer>
-                <button @click="$emit('close')">Close</button>
+                <slot name="footer">
+                    <button @click="$emit('close')">Close</button>
+                </slot>
             </footer>
         </div>
     </div>

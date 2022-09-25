@@ -21,5 +21,8 @@ let showModal = ref(false);
   
   <TeamFooter />
 
-  <Modal :show="showModal" @close="showModal = false" />
+  <Modal :show="showModal" @close="showModal = false">
+    <template #header>Custom Header</template>
+    <template #default>Custom Main Text</template>
+  </Modal>
 </template>
