@@ -3,12 +3,10 @@ import TeamHeader from "@/components/Teams/TeamHeader.vue";
 import TeamMemberTable from "@/components/Teams/TeamMemberTable.vue";
 import TeamFooter from "@/components/Teams/TeamFooter.vue";
 import { useTeamStore } from "@/stores/teamStore";
+import Modal from "@/components/Modal.vue";
 
 let team = useTeamStore();
 team.fill();
-setTimeout(() => {
-    team.grow(20)
-}, 2000);
 </script>
 
 <template>
@@ -19,4 +17,6 @@ setTimeout(() => {
   </div>
   
   <TeamFooter />
+
+  <Modal :show="true" />
 </template>
