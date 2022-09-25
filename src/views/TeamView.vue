@@ -1,5 +1,6 @@
 <script setup>
 import TeamMember from "@/components/Teams/TeamMember.vue";
+import team from "@/team.json";
 </script>
 
 <template>
@@ -27,11 +28,7 @@ import TeamMember from "@/components/Teams/TeamMember.vue";
         </thead>
 
         <tbody>
-            <TeamMember name="James Doe" email="james@doe.com" status="Active"></TeamMember>
-            <TeamMember name="Sarah Doe" email="sarah@doe.com" status="Active"></TeamMember>
-            <TeamMember name="Steve Doe" email="steve@doe.com" status="Active"></TeamMember>
-            <TeamMember name="Jenny Doe" email="jenny@doe.com" status="Active"></TeamMember>
-            <TeamMember name="Joe Doe" email="joe@doe.com" status="Active"></TeamMember>
+            <TeamMember v-for="member in team" :name="member.name" :email="member.email" :status="member.status"></TeamMember>
         </tbody>
     </table>
   
