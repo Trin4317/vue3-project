@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-defineProps({
-    team: Object
-})
+import { useTeamStore } from "@/stores/teamStore";
+
+let team = useTeamStore();
 </script>

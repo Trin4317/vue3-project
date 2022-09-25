@@ -9,11 +9,11 @@ team.fill();
 </script>
 
 <template>
-  <TeamHeader :team="team" />
+  <TeamHeader />
 
   <div class="place-self-center flex flex-col gap-y-3" style="width: 725px">
-    <TeamMemberTable :team="team" />
+    <TeamMemberTable />
   </div>
   
-  <TeamFooter :team="team" />
+  <TeamFooter />
 </template>
