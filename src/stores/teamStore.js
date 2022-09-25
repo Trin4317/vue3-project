@@ -10,21 +10,21 @@ export let useTeamStore = defineStore('team', {
     },
 
     actions: {
-        // fill the store with data from database
-        fill() {
-            import('@/team.json').then(r => {
-                // option 1: using $patch method
-                // let data = r.default;
+        // fill the store with data from database asynchronously
+        async fill() {
+            let r = await import('@/team.json');
+            
+            // option 1: using $patch method
+            // let data = r.default;
 
-                // this.$patch({
-                //     name: data.name,
-                //     spots: data.spots,
-                //     members: data.members
-                // });
+            // this.$patch({
+            //     name: data.name,
+            //     spots: data.spots,
+            //     members: data.members
+            // });
 
-                // option 2: mutating the $state (https://pinia.vuejs.org/core-concepts/state.html#replacing-the-state)
-                this.$state = r.default;
-            });
+            // option 2: mutating the $state (https://pinia.vuejs.org/core-concepts/state.html#replacing-the-state)
+            this.$state = r.default;
         }
     }
 });
