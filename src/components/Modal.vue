@@ -9,7 +9,9 @@ defineProps({
         <div class="modal-container">
             <header>Header</header>
             <div>Main text</div>
-            <footer>Footer</footer>
+            <footer>
+                <button @click="$emit('close')">Close</button>
+            </footer>
         </div>
     </div>
 </template>
