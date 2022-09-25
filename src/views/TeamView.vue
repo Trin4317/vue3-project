@@ -22,7 +22,18 @@ let showModal = ref(false);
   <TeamFooter />
 
   <Modal :show="showModal" @close="showModal = false">
-    <template #header>Custom Header</template>
-    <template #default>Custom Main Text</template>
+    <template #header>
+        <p>Need to add a new member to your team?</p>
+    </template>
+    <template #default>
+        <form class="mt-6">
+            <div class="flex gap-2">
+                <input type="text" placeholder="Name" class="flex-1">
+                <input type="email" placeholder="Email" class="flex-1">
+                Active? <input type="checkbox">
+                <button class="border">Add</button>
+            </div>
+        </form>
+    </template>
   </Modal>
 </template>

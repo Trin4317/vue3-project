@@ -13,7 +13,7 @@ defineProps({
             <div>
                 <slot>Default Main Text</slot>
             </div>
-            <footer>
+            <footer class="modal-footer">
                 <slot name="footer">
                     <button @click="$emit('close')">Close</button>
                 </slot>
@@ -35,5 +35,20 @@ defineProps({
     padding: 1rem;
     width: 80vw;
     max-width: 500px;
+    border-radius: 7px;
+}
+.modal-footer {
+    border-top: 1px solid #ddd;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+}
+.modal-footer button {
+    background: #ddd;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+}
+.modal-footer button:hover {
+    background: #c8c8c8;
 }
 </style>
